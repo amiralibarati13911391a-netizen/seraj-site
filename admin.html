@@ -1,1 +1,691 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت سراج</title>
 
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+  background:#f4f5f7;
+  color:#171717;
+}
+
+button,input,textarea{
+  font-family:inherit;
+}
+
+.header{
+  background:#111;
+  color:white;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.menu-btn{
+  background:#222;
+  color:white;
+  border:0;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:20px;
+}
+
+.layout{
+  display:flex;
+  min-height:calc(100vh - 65px);
+}
+
+.sidebar{
+  width:230px;
+  background:#171717;
+  color:white;
+  padding:20px 12px;
+}
+
+.sidebar h3{
+  padding:10px;
+  margin-bottom:10px;
+  color:#aaa;
+}
+
+.nav{
+  display:block;
+  width:100%;
+  border:0;
+  background:none;
+  color:#ddd;
+  text-align:right;
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:5px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.nav:hover,
+.nav.active{
+  background:#2c2c2c;
+  color:white;
+}
+
+.main{
+  flex:1;
+  padding:22px;
+  max-width:1200px;
+  margin:auto;
+  width:100%;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.title{
+  font-size:25px;
+  margin-bottom:20px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.card small{
+  color:#777;
+}
+
+.card strong{
+  display:block;
+  font-size:25px;
+  margin-top:10px;
+}
+
+.panel{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.panel h3{
+  margin-bottom:18px;
+}
+
+.form{
+  display:grid;
+  gap:12px;
+}
+
+input,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.btn{
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
+  cursor:pointer;
+  background:#111;
+  color:white;
+  font-size:14px;
+}
+
+.btn.secondary{
+  background:#e9e9e9;
+  color:#111;
+}
+
+.btn.danger{
+  background:#c62828;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.product{
+  border:1px solid #eee;
+  border-radius:13px;
+  overflow:hidden;
+  background:white;
+}
+
+.product img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  background:#eee;
+}
+
+.product-body{
+  padding:14px;
+}
+
+.product-body h4{
+  margin-bottom:8px;
+}
+
+.price{
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.actions{
+  display:flex;
+  gap:7px;
+}
+
+.actions button{
+  flex:1;
+}
+
+.empty{
+  text-align:center;
+  color:#888;
+  padding:30px;
+}
+
+.mobile-only{
+  display:none;
+}
+
+@media(max-width:800px){
+
+  .layout{
+    display:block;
+  }
+
+  .sidebar{
+    display:none;
+    width:100%;
+  }
+
+  .sidebar.open{
+    display:block;
+  }
+
+  .mobile-only{
+    display:block;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .main{
+    padding:15px;
+  }
+
+  .title{
+    font-size:21px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">سراج | پنل مدیریت</div>
+  <button class="menu-btn mobile-only" onclick="toggleMenu()">☰</button>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+
+<h3>مدیریت سراج</h3>
+
+<button class="nav active" onclick="showPage('dashboard',this)">
+🏠 داشبورد
+</button>
+
+<button class="nav" onclick="showPage('products',this)">
+🛍️ محصولات
+</button>
+
+<button class="nav" onclick="showPage('add',this)">
+➕ افزودن محصول
+</button>
+
+<button class="nav" onclick="showPage('orders',this)">
+📦 سفارش‌ها
+</button>
+
+<button class="nav" onclick="showPage('portfolio',this)">
+🖼️ نمونه‌کارها
+</button>
+
+<button class="nav" onclick="showPage('settings',this)">
+⚙️ تنظیمات
+</button>
+
+</aside>
+
+<main class="main">
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page active">
+
+<h1 class="title">داشبورد</h1>
+
+<div class="cards">
+
+<div class="card">
+<small>تعداد محصولات</small>
+<strong id="productCount">0</strong>
+</div>
+
+<div class="card">
+<small>سفارش‌ها</small>
+<strong>0</strong>
+</div>
+
+<div class="card">
+<small>درآمد</small>
+<strong>۰ تومان</strong>
+</div>
+
+<div class="card">
+<small>نمونه‌کارها</small>
+<strong>12</strong>
+</div>
+
+</div>
+
+<div class="panel">
+<h3>خوش آمدید 👋</h3>
+<p>
+به پنل مدیریت سراج خوش آمدید.
+از این قسمت می‌توانید محصولات فروشگاه و بخش‌های مختلف سایت را مدیریت کنید.
+</p>
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products" class="page">
+
+<h1 class="title">محصولات</h1>
+
+<div class="panel">
+
+<div id="productList" class="products"></div>
+
+<div id="emptyProducts" class="empty">
+هنوز محصولی اضافه نشده است.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ADD PRODUCT -->
+
+<section id="add" class="page">
+
+<h1 class="title">افزودن محصول</h1>
+
+<div class="panel">
+
+<h3>اطلاعات محصول</h3>
+
+<form class="form" onsubmit="saveProduct(event)">
+
+<input id="productName" type="text" placeholder="نام محصول" required>
+
+<input id="productPrice" type="number" placeholder="قیمت به تومان" required>
+
+<input id="productImage" type="text" placeholder="آدرس عکس محصول">
+
+<textarea id="productDescription" placeholder="توضیحات محصول"></textarea>
+
+<button class="btn" type="submit">
+ذخیره محصول
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ORDERS -->
+
+<section id="orders" class="page">
+
+<h1 class="title">سفارش‌ها</h1>
+
+<div class="panel">
+
+<div class="empty">
+هنوز سفارشی ثبت نشده است.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio" class="page">
+
+<h1 class="title">نمونه‌کارها</h1>
+
+<div class="panel">
+
+<h3>نمونه‌کارهای فعلی</h3>
+
+<p>
+در نسخه بعدی این بخش را به‌صورت کامل به تصاویر سایت وصل می‌کنیم تا بتوانی از داخل پنل نمونه‌کارها را اضافه، حذف و ویرایش کنی.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section id="settings" class="page">
+
+<h1 class="title">تنظیمات</h1>
+
+<div class="panel">
+
+<h3>تنظیمات سایت</h3>
+
+<div class="form">
+
+<input type="text" placeholder="نام سایت" value="سراج">
+
+<input type="text" placeholder="ایمیل">
+
+<input type="text" placeholder="شماره تماس">
+
+<textarea placeholder="توضیحات سایت"></textarea>
+
+<button class="btn" onclick="alert('تنظیمات فعلاً در مرورگر ذخیره می‌شود.')">
+ذخیره تنظیمات
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+</div>
+
+
+<script>
+
+let products =
+JSON.parse(localStorage.getItem("serajProducts")) || [];
+
+
+function showPage(id,button){
+
+document.querySelectorAll(".page")
+.forEach(page => page.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+
+document.querySelectorAll(".nav")
+.forEach(nav => nav.classList.remove("active"));
+
+button.classList.add("active");
+
+document.getElementById("sidebar")
+.classList.remove("open");
+
+if(id === "products"){
+renderProducts();
+}
+
+}
+
+
+function toggleMenu(){
+
+document.getElementById("sidebar")
+.classList.toggle("open");
+
+}
+
+
+function saveProduct(event){
+
+event.preventDefault();
+
+const name =
+document.getElementById("productName").value;
+
+const price =
+document.getElementById("productPrice").value;
+
+const image =
+document.getElementById("productImage").value;
+
+const description =
+document.getElementById("productDescription").value;
+
+products.push({
+id:Date.now(),
+name:name,
+price:price,
+image:image,
+description:description
+});
+
+localStorage.setItem(
+"serajProducts",
+JSON.stringify(products)
+);
+
+event.target.reset();
+
+updateCount();
+
+alert("محصول با موفقیت اضافه شد ✅");
+
+showPage(
+"products",
+document.querySelectorAll(".nav")[1]
+);
+
+renderProducts();
+
+}
+
+
+function renderProducts(){
+
+const list =
+document.getElementById("productList");
+
+const empty =
+document.getElementById("emptyProducts");
+
+list.innerHTML = "";
+
+if(products.length === 0){
+
+empty.style.display = "block";
+return;
+
+}
+
+empty.style.display = "none";
+
+products.forEach(product => {
+
+const item =
+document.createElement("div");
+
+item.className = "product";
+
+item.innerHTML = `
+
+<img src="${product.image || 'https://via.placeholder.com/600x400?text=Seraj'}">
+
+<div class="product-body">
+
+<h4>${product.name}</h4>
+
+<div class="price">
+${Number(product.price).toLocaleString('fa-IR')} تومان
+</div>
+
+<p>${product.description || ''}</p>
+
+<br>
+
+<div class="actions">
+
+<button class="btn secondary"
+onclick="editProduct(${product.id})">
+ویرایش
+</button>
+
+<button class="btn danger"
+onclick="deleteProduct(${product.id})">
+حذف
+</button>
+
+</div>
+
+</div>
+`;
+
+list.appendChild(item);
+
+});
+
+}
+
+
+function deleteProduct(id){
+
+if(!confirm("این محصول حذف شود؟")){
+return;
+}
+
+products =
+products.filter(product => product.id !== id);
+
+localStorage.setItem(
+"serajProducts",
+JSON.stringify(products)
+);
+
+renderProducts();
+updateCount();
+
+}
+
+
+function editProduct(id){
+
+const product =
+products.find(p => p.id === id);
+
+if(!product) return;
+
+const name =
+prompt("نام محصول:",product.name);
+
+if(name === null) return;
+
+const price =
+prompt("قیمت:",product.price);
+
+if(price === null) return;
+
+const description =
+prompt("توضیحات:",product.description);
+
+product.name = name;
+product.price = price;
+product.description = description;
+
+localStorage.setItem(
+"serajProducts",
+JSON.stringify(products)
+);
+
+renderProducts();
+
+}
+
+
+function updateCount(){
+
+document.getElementById("productCount")
+.innerText = products.length;
+
+}
+
+
+updateCount();
+
+</script>
+
+</body>
+</html>
