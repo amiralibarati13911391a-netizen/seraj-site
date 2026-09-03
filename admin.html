@@ -2,300 +2,296 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>پنل مدیریت سراج</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Tahoma,Arial,sans-serif;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
 }
 
 body{
-    background:#090909;
-    color:#fff;
-    min-height:100vh;
+margin:0;
+background:#090909;
+color:#fff;
 }
 
-/* LOGIN */
 #loginPage{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
-.login-box{
-    width:100%;
-    max-width:400px;
-    background:#151515;
-    border:1px solid #292929;
-    border-radius:20px;
-    padding:30px 22px;
-    text-align:center;
-    box-shadow:0 15px 50px rgba(0,0,0,.5);
+.loginBox{
+width:100%;
+max-width:380px;
+background:#151515;
+padding:30px 20px;
+border-radius:20px;
+text-align:center;
+border:1px solid #292929;
 }
 
 .logo{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    margin:0 auto 18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#d5ad55;
-    color:#090909;
-    font-size:28px;
-    font-weight:bold;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#d5ad55;
+color:#090909;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto auto 18px;
+font-size:30px;
+font-weight:bold;
 }
 
-.login-box h1{
-    margin-bottom:8px;
-    font-size:24px;
+.loginBox h1{
+margin-bottom:8px;
 }
 
-.login-box p{
-    color:#aaa;
-    margin-bottom:25px;
-    font-size:14px;
+.loginBox p{
+color:#999;
+font-size:14px;
+margin-bottom:20px;
 }
 
-input,select{
-    width:100%;
-    padding:14px;
-    border-radius:10px;
-    border:1px solid #333;
-    background:#0e0e0e;
-    color:white;
-    outline:none;
-    margin-bottom:12px;
+input{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border-radius:10px;
+border:1px solid #333;
+background:#0d0d0d;
+color:#fff;
+outline:none;
 }
 
 input:focus{
-    border-color:#d5ad55;
+border-color:#d5ad55;
 }
 
 button{
-    border:0;
-    cursor:pointer;
+border:0;
+cursor:pointer;
 }
 
-.login-btn{
-    width:100%;
-    padding:14px;
-    border-radius:10px;
-    background:#d5ad55;
-    color:#090909;
-    font-weight:bold;
-    font-size:16px;
+.loginBtn{
+width:100%;
+padding:14px;
+background:#d5ad55;
+color:#090909;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
 }
 
 #error{
-    color:#ff5555;
-    margin-top:15px;
-    display:none;
-    font-size:14px;
+display:none;
+color:#ff5555;
+margin-top:12px;
 }
 
-/* DASHBOARD */
 #dashboard{
-    display:none;
+display:none;
 }
 
 header{
-    background:#111;
-    border-bottom:1px solid #292929;
-    padding:16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:10;
+background:#111;
+padding:16px;
+border-bottom:1px solid #292929;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:sticky;
+top:0;
+z-index:10;
 }
 
 header h2{
-    color:#d5ad55;
-    font-size:20px;
+margin:0;
+color:#d5ad55;
+font-size:19px;
 }
 
 .logout{
-    background:#252525;
-    color:#fff;
-    padding:9px 14px;
-    border-radius:8px;
+background:#292929;
+color:#fff;
+padding:9px 14px;
+border-radius:8px;
 }
 
 .container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
+max-width:1000px;
+margin:auto;
+padding:20px;
 }
 
 .welcome{
-    margin-bottom:20px;
+margin-bottom:20px;
 }
 
 .welcome h1{
-    font-size:24px;
-    margin-bottom:7px;
+margin-bottom:7px;
 }
 
 .welcome p{
-    color:#999;
+color:#999;
 }
 
-/* CARDS */
 .cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-bottom:25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:20px;
 }
 
 .card{
-    background:#151515;
-    border:1px solid #292929;
-    border-radius:15px;
-    padding:20px;
+background:#151515;
+border:1px solid #292929;
+border-radius:15px;
+padding:20px;
 }
 
 .card span{
-    color:#999;
-    font-size:13px;
+color:#999;
+font-size:13px;
 }
 
 .card strong{
-    display:block;
-    color:#d5ad55;
-    font-size:28px;
-    margin-top:10px;
+display:block;
+font-size:28px;
+color:#d5ad55;
+margin-top:10px;
 }
 
-/* SECTIONS */
 .section{
-    background:#151515;
-    border:1px solid #292929;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:20px;
+background:#151515;
+border:1px solid #292929;
+border-radius:15px;
+padding:20px;
+margin-bottom:20px;
 }
 
 .section h2{
-    margin-bottom:18px;
-    color:#d5ad55;
+color:#d5ad55;
+margin-top:0;
 }
 
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.formGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
 }
 
 .full{
-    grid-column:1/-1;
+grid-column:1/-1;
 }
 
-.main-btn{
-    background:#d5ad55;
-    color:#090909;
-    padding:13px 20px;
-    border-radius:9px;
-    font-weight:bold;
+.mainBtn{
+background:#d5ad55;
+color:#090909;
+padding:13px 18px;
+border-radius:9px;
+font-weight:bold;
 }
 
-.cancel-btn{
-    background:#333;
-    color:#fff;
-    padding:13px 20px;
-    border-radius:9px;
-    margin-right:8px;
-    display:none;
+.cancelBtn{
+background:#333;
+color:#fff;
+padding:13px 18px;
+border-radius:9px;
+margin-right:5px;
+display:none;
 }
 
-/* PRODUCTS */
 .products{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
 }
 
 .product{
-    background:#0e0e0e;
-    border:1px solid #292929;
-    border-radius:13px;
-    overflow:hidden;
+background:#0d0d0d;
+border:1px solid #292929;
+border-radius:13px;
+overflow:hidden;
 }
 
 .product img{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    display:block;
+width:100%;
+height:200px;
+object-fit:cover;
+display:block;
+background:#222;
 }
 
-.product-info{
-    padding:15px;
+.productInfo{
+padding:15px;
 }
 
-.product-info h3{
-    margin-bottom:8px;
+.productInfo h3{
+margin:0 0 8px;
 }
 
 .price{
-    color:#d5ad55;
-    margin-bottom:12px;
+color:#d5ad55;
+margin-bottom:12px;
 }
 
 .actions{
-    display:flex;
-    gap:8px;
+display:flex;
+gap:8px;
 }
 
-.edit{
-    background:#d5ad55;
-    color:#090909;
-    padding:9px 13px;
-    border-radius:7px;
+.editBtn{
+background:#d5ad55;
+color:#090909;
+padding:9px 13px;
+border-radius:7px;
 }
 
-.delete{
-    background:#8d2929;
-    color:#fff;
-    padding:9px 13px;
-    border-radius:7px;
+.deleteBtn{
+background:#8d2929;
+color:#fff;
+padding:9px 13px;
+border-radius:7px;
 }
 
-/* MOBILE */
+.noImage{
+height:200px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#222;
+color:#888;
+}
+
 @media(max-width:700px){
 
-    .cards{
-        grid-template-columns:1fr;
-    }
+.cards{
+grid-template-columns:1fr;
+}
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
+.products{
+grid-template-columns:1fr;
+}
 
-    .products{
-        grid-template-columns:1fr;
-    }
+.formGrid{
+grid-template-columns:1fr;
+}
 
-    .full{
-        grid-column:auto;
-    }
+.full{
+grid-column:auto;
+}
 
-    header h2{
-        font-size:17px;
-    }
+.container{
+padding:15px;
+}
 
-    .container{
-        padding:15px;
-    }
 }
 </style>
 </head>
@@ -303,161 +299,225 @@ header h2{
 <body>
 
 <!-- LOGIN -->
+
 <div id="loginPage">
 
-    <div class="login-box">
+<div class="loginBox">
 
-        <div class="logo">س</div>
+<div class="logo">س</div>
 
-        <h1>پنل مدیریت سراج</h1>
+<h1>پنل مدیریت سراج</h1>
 
-        <p>برای ورود به مدیریت سایت رمز عبور را وارد کنید</p>
+<p>برای ورود رمز عبور را وارد کنید</p>
 
-        <input
-            type="password"
-            id="password"
-            placeholder="رمز عبور"
-            onkeydown="if(event.key==='Enter') login()"
-        >
+<input
+type="password"
+id="password"
+placeholder="رمز عبور"
+>
 
-        <button class="login-btn" onclick="login()">
-            ورود به پنل
-        </button>
+<button
+class="loginBtn"
+onclick="login()"
+>
+ورود به پنل
+</button>
 
-        <div id="error">
-            رمز عبور اشتباه است!
-        </div>
+<div id="error">
+رمز عبور اشتباه است!
+</div>
 
-    </div>
+</div>
 
 </div>
 
 
 <!-- DASHBOARD -->
+
 <div id="dashboard">
 
 <header>
 
-    <h2>سراج | پنل مدیریت</h2>
+<h2>سراج | پنل مدیریت</h2>
 
-    <button class="logout" onclick="logout()">
-        خروج
-    </button>
+<button
+class="logout"
+onclick="logout()"
+>
+خروج
+</button>
 
 </header>
 
 
 <div class="container">
 
-    <div class="welcome">
-        <h1>مدیریت سایت</h1>
-        <p>محصولات و فایل‌های لایه‌باز خودت را مدیریت کن.</p>
-    </div>
+<div class="welcome">
+
+<h1>مدیریت سایت</h1>
+
+<p>
+اینجا می‌توانی محصولات خودت را مدیریت کنی.
+</p>
+
+</div>
 
 
-    <!-- CARDS -->
+<!-- CARDS -->
 
-    <div class="cards">
+<div class="cards">
 
-        <div class="card">
-            <span>تعداد محصولات</span>
-            <strong id="productCount">0</strong>
-        </div>
+<div class="card">
 
-        <div class="card">
-            <span>نمونه‌کارها</span>
-            <strong>12</strong>
-        </div>
+<span>
+تعداد محصولات
+</span>
 
-        <div class="card">
-            <span>سفارش‌ها</span>
-            <strong>0</strong>
-        </div>
+<strong id="productCount">
+0
+</strong>
 
-    </div>
+</div>
 
 
-    <!-- ADD PRODUCT -->
+<div class="card">
 
-    <div class="section">
+<span>
+نمونه‌کارها
+</span>
 
-        <h2 id="formTitle">➕ افزودن محصول</h2>
+<strong>
+12
+</strong>
 
-        <div class="form-grid">
-
-            <div>
-                <input
-                    type="text"
-                    id="productName"
-                    placeholder="نام محصول"
-                >
-            </div>
-
-            <div>
-                <input
-                    type="text"
-                    id="productPrice"
-                    placeholder="قیمت محصول"
-                >
-            </div>
-
-            <div class="full">
-                <input
-                    type="text"
-                    id="productImage"
-                    placeholder="آدرس عکس، مثلا 1.jpg"
-                >
-            </div>
-
-            <div class="full">
-
-                <button
-                    class="main-btn"
-                    id="saveBtn"
-                    onclick="saveProduct()"
-                >
-                    افزودن محصول
-                </button>
-
-                <button
-                    class="cancel-btn"
-                    id="cancelBtn"
-                    onclick="cancelEdit()"
-                >
-                    لغو ویرایش
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <!-- PRODUCTS -->
+<div class="card">
 
-    <div class="section">
+<span>
+سفارش‌ها
+</span>
 
-        <h2>🛒 محصولات من</h2>
+<strong>
+0
+</strong>
 
-        <div id="products" class="products"></div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- INFO -->
+<!-- ADD PRODUCT -->
 
-    <div class="section">
+<div class="section">
 
-        <h2>⚙️ وضعیت پنل</h2>
+<h2 id="formTitle">
+➕ افزودن محصول
+</h2>
 
-        <p style="color:#aaa;line-height:2;">
-            این نسخه محصولات را داخل حافظه مرورگر ذخیره می‌کند.
-            برای اینکه تغییرات محصولات در سایت اصلی هم برای همه کاربران نمایش داده شود،
-            در مرحله بعد آن را به دیتابیس و سیستم ورود واقعی متصل می‌کنیم.
-        </p>
+<div class="formGrid">
 
-    </div>
+<input
+id="productName"
+type="text"
+placeholder="نام محصول"
+>
+
+<input
+id="productPrice"
+type="text"
+placeholder="قیمت محصول"
+>
+
+<div class="full">
+
+<input
+id="productImage"
+type="text"
+placeholder="آدرس عکس مثل 5.jpg"
+>
+
+</div>
+
+
+<div class="full">
+
+<button
+class="mainBtn"
+id="saveBtn"
+onclick="saveProduct()"
+>
+افزودن محصول
+</button>
+
+<button
+class="cancelBtn"
+id="cancelBtn"
+onclick="cancelEdit()"
+>
+لغو
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div class="section">
+
+<h2>
+🛒 محصولات
+</h2>
+
+<div
+id="products"
+class="products"
+>
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+⚠️ نکته
+</h2>
+
+<p style="color:#aaa;line-height:2">
+
+اگر عکس کنار فایل‌های سایت باشد، فقط اسم عکس را بنویس.
+
+مثلاً:
+
+<br><br>
+
+<b style="color:#d5ad55">
+5.jpg
+</b>
+
+<br><br>
+
+اگر عکس داخل پوشه باشد:
+
+<br><br>
+
+<b style="color:#d5ad55">
+images/5.jpg
+</b>
+
+<br><br>
+
+اگر عکس پیدا نشود، دیگر عکس شماره ۱ به‌صورت خودکار نمایش داده نمی‌شود.
+
+</p>
+
+</div>
 
 </div>
 
@@ -466,320 +526,409 @@ header h2{
 
 <script>
 
-/* =========================
-   PASSWORD
-========================= */
+/* رمز پنل */
 
 const ADMIN_PASSWORD = "Seraj315";
 
 
+/* ورود */
+
 function login(){
 
-    const password =
-        document.getElementById("password").value;
+const password =
+document.getElementById("password").value;
 
-    if(password === ADMIN_PASSWORD){
+if(password === ADMIN_PASSWORD){
 
-        sessionStorage.setItem("serajAdmin","true");
+sessionStorage.setItem(
+"serajAdmin",
+"true"
+);
 
-        document.getElementById("loginPage").style.display="none";
+document.getElementById("loginPage")
+.style.display="none";
 
-        document.getElementById("dashboard").style.display="block";
+document.getElementById("dashboard")
+.style.display="block";
 
-        document.getElementById("error").style.display="none";
+document.getElementById("error")
+.style.display="none";
 
-        renderProducts();
+renderProducts();
 
-    }else{
+}else{
 
-        document.getElementById("error").style.display="block";
+document.getElementById("error")
+.style.display="block";
 
-    }
 }
 
+}
+
+
+/* خروج */
 
 function logout(){
 
-    sessionStorage.removeItem("serajAdmin");
+sessionStorage.removeItem("serajAdmin");
 
-    document.getElementById("dashboard").style.display="none";
+document.getElementById("dashboard")
+.style.display="none";
 
-    document.getElementById("loginPage").style.display="flex";
+document.getElementById("loginPage")
+.style.display="flex";
 
-    document.getElementById("password").value="";
+document.getElementById("password")
+.value="";
 
 }
 
 
-/* =========================
-   CHECK LOGIN
-========================= */
+/* ورود با Enter */
 
-window.onload = function(){
+document.getElementById("password")
+.addEventListener("keydown",function(e){
 
-    if(sessionStorage.getItem("serajAdmin") === "true"){
+if(e.key === "Enter"){
 
-        document.getElementById("loginPage").style.display="none";
+login();
 
-        document.getElementById("dashboard").style.display="block";
+}
 
-        renderProducts();
-
-    }
-
-};
+});
 
 
-/* =========================
-   PRODUCTS
-========================= */
+/* محصولات */
 
 let products =
-    JSON.parse(localStorage.getItem("serajProducts")) || [];
+JSON.parse(
+localStorage.getItem("serajProducts")
+) || [];
 
 let editingIndex = -1;
 
 
+/* ذخیره محصول */
+
 function saveProduct(){
 
-    const name =
-        document.getElementById("productName").value.trim();
+const name =
+document.getElementById("productName")
+.value.trim();
 
-    const price =
-        document.getElementById("productPrice").value.trim();
+const price =
+document.getElementById("productPrice")
+.value.trim();
 
-    const image =
-        document.getElementById("productImage").value.trim();
-
-
-    if(!name || !price){
-
-        alert("لطفاً نام و قیمت محصول را وارد کن.");
-
-        return;
-
-    }
+const image =
+document.getElementById("productImage")
+.value.trim();
 
 
-    const product = {
+if(name === "" || price === ""){
 
-        name:name,
+alert("نام و قیمت محصول را وارد کن.");
 
-        price:price,
-
-        image:image || "1.jpg"
-
-    };
-
-
-    if(editingIndex === -1){
-
-        products.push(product);
-
-    }else{
-
-        products[editingIndex] = product;
-
-        editingIndex = -1;
-
-        document.getElementById("formTitle").innerText =
-            "➕ افزودن محصول";
-
-        document.getElementById("saveBtn").innerText =
-            "افزودن محصول";
-
-        document.getElementById("cancelBtn").style.display =
-            "none";
-
-    }
-
-
-    localStorage.setItem(
-        "serajProducts",
-        JSON.stringify(products)
-    );
-
-
-    document.getElementById("productName").value="";
-
-    document.getElementById("productPrice").value="";
-
-    document.getElementById("productImage").value="";
-
-
-    renderProducts();
+return;
 
 }
 
+
+const product = {
+
+name:name,
+
+price:price,
+
+image:image
+
+};
+
+
+if(editingIndex === -1){
+
+products.push(product);
+
+}else{
+
+products[editingIndex] = product;
+
+editingIndex = -1;
+
+document.getElementById("formTitle")
+.innerText="➕ افزودن محصول";
+
+document.getElementById("saveBtn")
+.innerText="افزودن محصول";
+
+document.getElementById("cancelBtn")
+.style.display="none";
+
+}
+
+
+localStorage.setItem(
+"serajProducts",
+JSON.stringify(products)
+);
+
+
+document.getElementById("productName")
+.value="";
+
+document.getElementById("productPrice")
+.value="";
+
+document.getElementById("productImage")
+.value="";
+
+
+renderProducts();
+
+}
+
+
+/* نمایش محصولات */
 
 function renderProducts(){
 
-    const container =
-        document.getElementById("products");
+const container =
+document.getElementById("products");
 
-    container.innerHTML="";
-
-
-    document.getElementById("productCount").innerText =
-        products.length;
+container.innerHTML="";
 
 
-    if(products.length === 0){
-
-        container.innerHTML = `
-            <p style="color:#888">
-                هنوز محصولی اضافه نشده است.
-            </p>
-        `;
-
-        return;
-
-    }
+document.getElementById("productCount")
+.innerText=products.length;
 
 
-    products.forEach((product,index)=>{
+if(products.length === 0){
 
-        container.innerHTML += `
+container.innerHTML=`
 
-        <div class="product">
+<div style="
+color:#888;
+padding:10px;
+">
 
-            <img
-                src="${product.image}"
-                onerror="this.src='1.jpg'"
-            >
+هنوز محصولی اضافه نکرده‌ای.
 
-            <div class="product-info">
+</div>
 
-                <h3>${escapeHtml(product.name)}</h3>
+`;
 
-                <div class="price">
-                    ${escapeHtml(product.price)}
-                </div>
-
-                <div class="actions">
-
-                    <button
-                        class="edit"
-                        onclick="editProduct(${index})"
-                    >
-                        ویرایش
-                    </button>
-
-                    <button
-                        class="delete"
-                        onclick="deleteProduct(${index})"
-                    >
-                        حذف
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
+return;
 
 }
 
+
+products.forEach(function(product,index){
+
+let imageHTML="";
+
+
+if(product.image){
+
+imageHTML=`
+
+<img
+src="${escapeHtml(product.image)}"
+alt="${escapeHtml(product.name)}"
+>
+
+`;
+
+}else{
+
+imageHTML=`
+
+<div class="noImage">
+عکسی برای این محصول ثبت نشده
+</div>
+
+`;
+
+}
+
+
+container.innerHTML += `
+
+<div class="product">
+
+${imageHTML}
+
+<div class="productInfo">
+
+<h3>
+${escapeHtml(product.name)}
+</h3>
+
+<div class="price">
+${escapeHtml(product.price)}
+</div>
+
+<div class="actions">
+
+<button
+class="editBtn"
+onclick="editProduct(${index})"
+>
+ویرایش
+</button>
+
+<button
+class="deleteBtn"
+onclick="deleteProduct(${index})"
+>
+حذف
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* ویرایش */
 
 function editProduct(index){
 
-    const product = products[index];
+const product=products[index];
 
-    document.getElementById("productName").value =
-        product.name;
+document.getElementById("productName")
+.value=product.name;
 
-    document.getElementById("productPrice").value =
-        product.price;
+document.getElementById("productPrice")
+.value=product.price;
 
-    document.getElementById("productImage").value =
-        product.image;
-
-    editingIndex = index;
+document.getElementById("productImage")
+.value=product.image;
 
 
-    document.getElementById("formTitle").innerText =
-        "✏️ ویرایش محصول";
-
-    document.getElementById("saveBtn").innerText =
-        "ذخیره تغییرات";
-
-    document.getElementById("cancelBtn").style.display =
-        "inline-block";
+editingIndex=index;
 
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+document.getElementById("formTitle")
+.innerText="✏️ ویرایش محصول";
+
+document.getElementById("saveBtn")
+.innerText="ذخیره تغییرات";
+
+document.getElementById("cancelBtn")
+.style.display="inline-block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
 
 }
 
+
+/* لغو */
 
 function cancelEdit(){
 
-    editingIndex = -1;
+editingIndex=-1;
 
-    document.getElementById("productName").value="";
+document.getElementById("productName")
+.value="";
 
-    document.getElementById("productPrice").value="";
+document.getElementById("productPrice")
+.value="";
 
-    document.getElementById("productImage").value="";
+document.getElementById("productImage")
+.value="";
 
-    document.getElementById("formTitle").innerText =
-        "➕ افزودن محصول";
 
-    document.getElementById("saveBtn").innerText =
-        "افزودن محصول";
+document.getElementById("formTitle")
+.innerText="➕ افزودن محصول";
 
-    document.getElementById("cancelBtn").style.display =
-        "none";
+document.getElementById("saveBtn")
+.innerText="افزودن محصول";
+
+document.getElementById("cancelBtn")
+.style.display="none";
 
 }
 
+
+/* حذف */
 
 function deleteProduct(index){
 
-    const answer =
-        confirm("آیا مطمئنی می‌خواهی این محصول حذف شود؟");
+if(!confirm(
+"آیا مطمئنی می‌خواهی این محصول حذف شود؟"
+)){
 
-    if(!answer) return;
-
-
-    products.splice(index,1);
-
-    localStorage.setItem(
-        "serajProducts",
-        JSON.stringify(products)
-    );
-
-    renderProducts();
+return;
 
 }
 
 
-/* =========================
-   SECURITY / HTML
-========================= */
+products.splice(index,1);
+
+localStorage.setItem(
+"serajProducts",
+JSON.stringify(products)
+);
+
+renderProducts();
+
+}
+
+
+/* جلوگیری از خراب شدن HTML */
 
 function escapeHtml(text){
 
-    return String(text)
+return String(text)
 
-        .replace(/&/g,"&amp;")
+.replace(/&/g,"&amp;")
 
-        .replace(/</g,"&lt;")
+.replace(/</g,"&lt;")
 
-        .replace(/>/g,"&gt;")
+.replace(/>/g,"&gt;")
 
-        .replace(/"/g,"&quot;")
+.replace(/"/g,"&quot;")
 
-        .replace(/'/g,"&#039;");
+.replace(/'/g,"&#039;");
 
 }
+
+
+/* بررسی ورود */
+
+window.onload=function(){
+
+if(
+sessionStorage.getItem("serajAdmin")
+===
+"true"
+){
+
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("dashboard")
+.style.display="block";
+
+renderProducts();
+
+}
+
+};
 
 </script>
 
