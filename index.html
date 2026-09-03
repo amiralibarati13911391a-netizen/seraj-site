@@ -1,455 +1,671 @@
-<!DOCTYPE html><html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سِراج | طراح پوستر مذهبی</title><style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-font-family:Tahoma,Arial,sans-serif;
-background:#080a09;
-color:#f5f1e8;
-line-height:1.8;
+<title>سراج | طراحی پوستر مذهبی</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-a{text-decoration:none;color:inherit}
-.container{width:92%;max-width:1100px;margin:auto}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#090909;
+    color:#fff;
+    line-height:1.8;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
 header{
-position:fixed;
-top:0;left:0;right:0;
-z-index:1000;
-padding:14px 0;
-background:rgba(8,10,9,.9);
-border-bottom:1px solid #222;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    z-index:1000;
+    background:rgba(10,10,10,.94);
+    border-bottom:1px solid #8d6b25;
+    backdrop-filter:blur(10px);
 }
-.navbar{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:24px;font-weight:bold;color:#d6b66b}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#d5ad55;
+}
 
 .menu{
-border:1px solid #333;
-background:#111;
-color:#fff;
-border-radius:10px;
-padding:10px 14px;
-font-size:20px;
+    display:flex;
+    gap:20px;
 }
-nav{
-display:none;
-position:absolute;
-top:65px;
-right:4%;
-width:220px;
-background:#111;
-border:1px solid #333;
-border-radius:15px;
-padding:8px;
+
+.menu a{
+    color:#ddd;
+    font-size:14px;
+    transition:.3s;
 }
-nav.active{display:block}
-nav a{
-display:block;
-padding:12px;
-color:#bbb;
+
+.menu a:hover{
+    color:#d5ad55;
 }
-nav a:hover{color:#d6b66b}
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    color:#d5ad55;
+    cursor:pointer;
+}
 
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding-top:120px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 20px 60px;
+    background:
+    radial-gradient(circle at center,#30240e 0%,#090909 55%);
 }
+
 .hero h1{
-font-size:clamp(42px,10vw,80px);
-line-height:1.2;
-margin:20px 0;
-}
-.hero h1 span{color:#d6b66b}
-.hero p{color:#999;max-width:700px;font-size:15px}
-
-.buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:25px;
-}
-.button{
-padding:12px 20px;
-border-radius:12px;
-border:1px solid #333;
-display:inline-block;
-font-weight:bold;
-font-size:13px;
-}
-.primary{
-background:#d6b66b;
-color:#111;
-border-color:#d6b66b;
+    font-size:48px;
+    color:#d5ad55;
+    margin-bottom:15px;
 }
 
-section{padding:80px 0}
-.title{margin-bottom:30px}
-.title small{color:#d6b66b}
-.title h2{font-size:30px}
-.title p{color:#777;font-size:13px}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+.hero p{
+    color:#ccc;
+    font-size:17px;
+    max-width:650px;
+    margin:auto;
 }
 
-.card{
-background:#101310;
-border:1px solid #252825;
-border-radius:18px;
-padding:9px;
-overflow:hidden;
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:11px 25px;
+    border:1px solid #d5ad55;
+    border-radius:30px;
+    color:#d5ad55;
+    transition:.3s;
 }
-.image{
-aspect-ratio:4/5;
-border-radius:13px;
-overflow:hidden;
-background:#151815;
+
+.btn:hover{
+    background:#d5ad55;
+    color:#000;
 }
-.image img{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 15px;
 }
-.card h3{
-font-size:13px;
-margin:12px 5px 6px;
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
 }
-.desc{
-font-size:10px;
-color:#777;
-margin:0 5px 8px;
+
+.title h2{
+    color:#d5ad55;
+    font-size:30px;
+    margin-bottom:8px;
 }
+
+.title p{
+    color:#999;
+}
+
+/* Portfolio */
+
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.poster{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.poster:hover{
+    transform:translateY(-5px);
+    border-color:#d5ad55;
+}
+
+.poster img{
+    width:100%;
+    display:block;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+.poster-info{
+    padding:12px;
+    text-align:center;
+}
+
+.poster-info h3{
+    color:#eee;
+    font-size:15px;
+}
+
+/* Shop */
+
+.shop{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.product{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.product img{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:15px;
+    text-align:center;
+}
+
+.product-info h3{
+    color:#fff;
+    margin-bottom:5px;
+}
+
 .price{
-color:#d6b66b;
-font-weight:bold;
-font-size:12px;
-margin:0 5px 10px;
-}
-.card button{
-width:100%;
-padding:11px;
-border-radius:10px;
-border:0;
-background:#d6b66b;
-color:#111;
-font-weight:bold;
-cursor:pointer;
+    color:#d5ad55;
+    font-weight:bold;
+    margin:8px 0;
 }
 
-.portfolio-button{
-background:#181c18!important;
-color:#ddd!important;
-border:1px solid #333!important;
+.buy{
+    display:block;
+    background:#d5ad55;
+    color:#000;
+    padding:8px;
+    border-radius:7px;
+    cursor:pointer;
+    border:none;
+    width:100%;
+    font-weight:bold;
 }
+
+/* Reviews */
 
 .reviews{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
+
 .review{
-background:#101310;
-border:1px solid #252825;
-border-radius:18px;
-padding:20px;
+    background:#111;
+    border:1px solid #292929;
+    padding:20px;
+    border-radius:12px;
+    color:#bbb;
 }
-.stars{color:#d6b66b}
-.review p{font-size:12px;color:#999;margin-top:10px}
+
+.review strong{
+    display:block;
+    color:#d5ad55;
+    margin-bottom:8px;
+}
+
+/* Contact */
 
 .contact{
-text-align:center;
-padding:50px 20px;
-background:#101410;
-border:1px solid #333;
-border-radius:25px;
-}
-.contact p{
-color:#999;
-margin:10px auto 20px;
-max-width:600px;
+    text-align:center;
 }
 
-footer{
-border-top:1px solid #222;
-padding:35px 0;
-color:#777;
-font-size:11px;
+.contact p{
+    color:#bbb;
+    margin:8px;
 }
-.social{
-display:flex;
-gap:8px;
-margin-top:12px;
+
+.socials{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
 }
-.social a{
-border:1px solid #333;
-padding:7px 10px;
-border-radius:8px;
+
+.socials a{
+    border:1px solid #d5ad55;
+    color:#d5ad55;
+    padding:8px 16px;
+    border-radius:20px;
 }
+
+/* Cart */
 
 .cart{
-position:fixed;
-bottom:20px;
-left:18px;
-z-index:2000;
-width:55px;
-height:55px;
-border-radius:17px;
-border:1px solid #d6b66b;
-background:#111;
-color:#d6b66b;
-font-size:22px;
-}
-.count{
-position:absolute;
-top:-6px;
-right:-6px;
-background:#d6b66b;
-color:#111;
-width:20px;
-height:20px;
-border-radius:50%;
-font-size:10px;
-display:grid;
-place-items:center;
+    position:fixed;
+    left:18px;
+    bottom:18px;
+    z-index:999;
+    background:#d5ad55;
+    color:#000;
+    padding:10px 17px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-@media(max-width:750px){
-.grid{grid-template-columns:repeat(2,1fr);gap:9px}
-.reviews{grid-template-columns:1fr}
-.card h3{font-size:11px}
-.hero h1{font-size:45px}
+/* Image Viewer */
+
+.viewer{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-@media(max-width:420px){
-.card h3{font-size:10px}
-.desc{font-size:8px}
+.viewer img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:8px;
 }
-</style></head><body><header>
-<div class="container navbar">
-<div class="logo">سِراج</div><button class="menu" onclick="toggleMenu()">☰</button>
 
-<nav id="nav">
-<a href="#home">خانه</a>
-<a href="#portfolio">نمونه‌کارها</a>
-<a href="#shop">فروش فایل‌ها</a>
-<a href="#reviews">نظرات</a>
-<a href="#contact">ارتباط با من</a>
-</nav>
-</div>
-</header><section class="hero" id="home">
-<div class="container">
-<div style="color:#d6b66b">● طراح پوستر مذهبی</div><h1>
-طراح <span>پوسترهای مذهبی</span>
-</h1><p>
-به وبسایت شخصی سِراج خوش اومدین.
-من در زمینه طراحی پوسترهای مذهبی، تایپوگرافی و طراحی‌های مناسبتی فعالیت می‌کنم.
-</p><div class="buttons">
-<a class="button primary" href="tel:09107211894">☎ تماس با من</a>
-<a class="button" href="#portfolio">مشاهده نمونه‌کارها ↓</a>
-</div>
-</div>
-</section><section id="portfolio">
-<div class="container"><div class="title">
-<small>PORTFOLIO</small>
-<h2>نمونه‌کارهای سِراج</h2>
-<p>بخشی از طراحی‌های من</p>
-</div><div class="grid"><div class="card">
-<div class="image">
-<img src="image/poster1.jpg" alt="نمونه کار ۱">
-</div>
-<h3>نمونه‌کار شماره ۱</h3>
-<button class="portfolio-button" onclick="showImage('images/poster1.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster2.jpg" alt="نمونه کار ۲">
-</div>
-<h3>نمونه‌کار شماره ۲</h3>
-<button class="portfolio-button" onclick="showImage('images/poster2.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster3.jpg" alt="نمونه کار ۳">
-</div>
-<h3>نمونه‌کار شماره ۳</h3>
-<button class="portfolio-button" onclick="showImage('images/poster3.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster4.jpg" alt="نمونه کار ۴">
-</div>
-<h3>نمونه‌کار شماره ۴</h3>
-<button class="portfolio-button" onclick="showImage('images/poster4.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster5.jpg" alt="نمونه کار ۵">
-</div>
-<h3>نمونه‌کار شماره ۵</h3>
-<button class="portfolio-button" onclick="showImage('images/poster5.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster6.jpg" alt="نمونه کار ۶">
-</div>
-<h3>نمونه‌کار شماره ۶</h3>
-<button class="portfolio-button" onclick="showImage('images/poster6.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster7.jpg" alt="نمونه کار ۷">
-</div>
-<h3>نمونه‌کار شماره ۷</h3>
-<button class="portfolio-button" onclick="showImage('images/poster7.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster8.jpg" alt="نمونه کار ۸">
-</div>
-<h3>نمونه‌کار شماره ۸</h3>
-<button class="portfolio-button" onclick="showImage('images/poster8.jpg')">مشاهده نمونه</button>
-</div><div class="card">
-<div class="image">
-<img src="image/poster9.jpg" alt="نمونه کار ۹">
-</div>
-<h3>نمونه‌کار شماره ۹</h3>
-<button class="portfolio-button" onclick="showImage('images/poster9.jpg')">مشاهده نمونه</button>
-</div></div>
-</div>
-</section><section id="shop">
-<div class="container"><div class="title">
-<small>SHOP</small>
-<h2>فروش فایل‌های سِراج</h2>
-<p>فایل‌های لایه‌باز، تایپوگرافی و طراحی‌های آماده</p>
-</div><div class="grid"><div class="card">
-<div class="image">
-<img src="images/poster1.jpg" alt="پوستر محرم">
-</div>
-<h3>پوستر محرم لایه‌باز</h3>
-<p class="desc">فایل قابل ویرایش با کیفیت بالا.</p>
-<div class="price">۸۹٬۰۰۰ تومان</div>
-<button onclick="addCart('پوستر محرم لایه‌باز',89000,'images/poster1.jpg')">افزودن به سبد خرید</button>
-</div><div class="card">
-<div class="image">
-<img src="images/poster2.jpg" alt="پوستر فاطمیه">
-</div>
-<h3>پوستر فاطمیه لایه‌باز</h3>
-<p class="desc">فایل لایه‌باز مناسب طراحی مذهبی.</p>
-<div class="price">۷۹٬۰۰۰ تومان</div>
-<button onclick="addCart('پوستر فاطمیه لایه‌باز',79000,'images/poster2.jpg')">افزودن به سبد خرید</button>
-</div><div class="card">
-<div class="image">
-<img src="images/poster3.jpg" alt="تایپوگرافی مذهبی">
-</div>
-<h3>تایپوگرافی مذهبی</h3>
-<p class="desc">تایپوگرافی آماده برای پروژه‌های مذهبی.</p>
-<div class="price">۶۹٬۰۰۰ تومان</div>
-<button onclick="addCart('تایپوگرافی مذهبی',69000,'images/poster3.jpg')">افزودن به سبد خرید</button>
-</div><div class="card">
-<div class="image">
-<img src="images/poster4.jpg" alt="پوستر عاشورایی">
-</div>
-<h3>پوستر عاشورایی</h3>
-<p class="desc">فایل لایه‌باز مناسب محرم و عاشورا.</p>
-<div class="price">۹۹٬۰۰۰ تومان</div>
-<button onclick="addCart('پوستر عاشورایی',99000,'images/poster4.jpg')">افزودن به سبد خرید</button>
-</div></div>
-</div>
-</section><section id="reviews">
-<div class="container">
-<div class="title">
-<small>REVIEWS</small>
-<h2>نظرات مشتریان</h2>
-</div><div class="reviews"><div class="review">
-<div class="stars">★★★★★</div>
-<p>طراحی خیلی تمیز و حرفه‌ای بود و سریع تحویل داده شد.</p>
-<strong>محمد</strong>
-</div><div class="review">
-<div class="stars">★★★★★</div>
-<p>ترکیب‌بندی و تایپوگرافی کار واقعاً جذاب بود.</p>
-<strong>علی</strong>
-</div><div class="review">
-<div class="stars">★★★★★</div>
-<p>برخورد عالی و نتیجه کاملاً حرفه‌ای.</p>
-<strong>حسین</strong>
-</div></div>
-</div>
-</section><section id="contact">
-<div class="container">
-<div class="contact"><div style="color:#d6b66b">CONTACT ME</div><h2>منتظر سفارش شما هستم.</h2><p>
-برای سفارش طراحی پوستر مذهبی، تایپوگرافی یا دریافت اطلاعات بیشتر با من در ارتباط باشید.
-</p><div class="buttons" style="justify-content:center">
-<a class="button primary" href="tel:09107211894">☎ 09107211894</a>
-<a class="button" href="mailto:amiralibarati1391.1391.a@gmail.com">✉ ارسال ایمیل</a>
-</div></div>
-</div>
-</section><button class="cart" onclick="alertCart()">
-🛒
-<span class="count" id="count">۰</span>
-</button><div id="viewer" style="
-display:none;
-position:fixed;
-inset:0;
-z-index:5000;
-background:rgba(0,0,0,.94);
-align-items:center;
-justify-content:center;
-padding:20px"><button onclick="closeImage()" style="
-position:absolute;
-top:15px;
-right:20px;
-font-size:35px;
-background:none;
-border:0;
-color:white">×</button>
+.close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:35px;
+    color:#fff;
+    cursor:pointer;
+}
 
-<img id="viewerImg" style="
-max-width:95%;
-max-height:90%;
-object-fit:contain;
-border-radius:12px">
+/* Footer */
 
-</div><footer>
-<div class="container">
-<div style="color:#d6b66b;font-size:20px;font-weight:bold">سِراج</div>
-<div>© ۲۰۲۶ سِراج</div><div class="social">
-<a href="tg://resolve?domain=serag315a">تلگرام</a>
-<a href="https://eitaa.com/serag315a">ایتا</a>
-<a href="https://rubika.ir/serag315a">روبیکا</a>
+footer{
+    border-top:1px solid #292929;
+    text-align:center;
+    padding:30px 15px;
+    color:#777;
+}
+
+footer span{
+    color:#d5ad55;
+}
+
+/* Mobile */
+
+@media(max-width:800px){
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        right:0;
+        left:0;
+        background:#0d0d0d;
+        flex-direction:column;
+        padding:20px;
+        border-bottom:1px solid #8d6b25;
+        text-align:center;
+    }
+
+    .menu.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .portfolio{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .shop{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .reviews{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 10px;
+    }
+}
+
+@media(max-width:430px){
+
+    .portfolio{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .shop{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="logo">سِراج</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+        <nav class="menu" id="menu">
+            <a href="#home">خانه</a>
+            <a href="#portfolio">نمونه‌کارها</a>
+            <a href="#shop">فروشگاه</a>
+            <a href="#reviews">نظرات</a>
+            <a href="#contact">تماس</a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+    <div>
+        <h1>سِراج</h1>
+        <p>
+            طراحی تخصصی پوسترهای مذهبی،
+            تایپوگرافی و آثار گرافیکی مناسب مجالس و مناسبت‌های مذهبی
+        </p>
+
+        <a href="#portfolio" class="btn">
+            مشاهده نمونه‌کارها
+        </a>
+    </div>
+</section>
+
+<!-- Portfolio -->
+
+<section id="portfolio">
+
+    <div class="title">
+        <h2>نمونه‌کارها</h2>
+        <p>مجموعه‌ای از طراحی‌های سِراج</p>
+    </div>
+
+    <div class="portfolio">
+
+        <div class="poster">
+            <img src="1.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۱</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="2.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۲</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="3.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۳</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="4.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۴</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="5.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۵</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="6.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۶</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="7.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۷</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="8.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۸</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="9.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۹</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="10.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۱۰</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="11.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۱۱</h3></div>
+        </div>
+
+        <div class="poster">
+            <img src="12.jpg" onclick="showImage(this.src)">
+            <div class="poster-info"><h3>پوستر شماره ۱۲</h3></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Shop -->
+
+<section id="shop">
+
+    <div class="title">
+        <h2>فروشگاه</h2>
+        <p>فایل‌های قابل ویرایش طراحی‌های سِراج</p>
+    </div>
+
+    <div class="shop">
+
+        <div class="product">
+            <img src="1.jpg">
+            <div class="product-info">
+                <h3>فایل لایه‌باز پوستر ۱</h3>
+                <div class="price">قیمت: به‌زودی</div>
+                <button class="buy" onclick="addCart('پوستر ۱')">
+                    افزودن به سبد
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="2.jpg">
+            <div class="product-info">
+                <h3>فایل لایه‌باز پوستر ۲</h3>
+                <div class="price">قیمت: به‌زودی</div>
+                <button class="buy" onclick="addCart('پوستر ۲')">
+                    افزودن به سبد
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="3.jpg">
+            <div class="product-info">
+                <h3>فایل لایه‌باز پوستر ۳</h3>
+                <div class="price">قیمت: به‌زودی</div>
+                <button class="buy" onclick="addCart('پوستر ۳')">
+                    افزودن به سبد
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="4.jpg">
+            <div class="product-info">
+                <h3>فایل لایه‌باز پوستر ۴</h3>
+                <div class="price">قیمت: به‌زودی</div>
+                <button class="buy" onclick="addCart('پوستر ۴')">
+                    افزودن به سبد
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Reviews -->
+
+<section id="reviews">
+
+    <div class="title">
+        <h2>نظرات</h2>
+        <p>نظر مشتریان و همراهان سِراج</p>
+    </div>
+
+    <div class="reviews">
+
+        <div class="review">
+            <strong>مشتری سِراج</strong>
+            طراحی بسیار زیبا و حرفه‌ای بود.
+        </div>
+
+        <div class="review">
+            <strong>مشتری سِراج</strong>
+            کیفیت کار و جزئیات پوستر عالی بود.
+        </div>
+
+        <div class="review">
+            <strong>مشتری سِراج</strong>
+            طراحی کاملاً مناسب فضای مذهبی بود.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+    <div class="title">
+        <h2>ارتباط با من</h2>
+        <p>برای سفارش طراحی با من در ارتباط باشید.</p>
+    </div>
+
+    <div class="contact">
+
+        <p>📞 09107211894</p>
+        <p>📧 amiralibarati1391.1391.a@gmail.com</p>
+
+        <div class="socials">
+            <a href="tg://resolve?domain=serag315a">تلگرام</a>
+            <a href="https://eitaa.com/serag315a">ایتا</a>
+            <a href="https://rubika.ir/serag315a">روبیکا</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Cart -->
+
+<div class="cart" onclick="alertCart()">
+    🛒 سبد خرید: <span id="cartCount">0</span>
 </div>
+
+<!-- Image Viewer -->
+
+<div class="viewer" id="viewer" onclick="closeImage()">
+
+    <div class="close">×</div>
+
+    <img id="viewerImg" src="" onclick="event.stopPropagation()">
+
 </div>
-</footer><script>
+
+<footer>
+    © 2026 <span>سِراج</span> — طراحی پوستر مذهبی
+</footer>
+
+<script>
+
+let cartCount = 0;
 
 function toggleMenu(){
-document.getElementById("nav").classList.toggle("active");
+    document.getElementById("menu").classList.toggle("active");
 }
 
 function showImage(src){
-document.getElementById("viewerImg").src=src;
-document.getElementById("viewer").style.display="flex";
+    document.getElementById("viewerImg").src = src;
+    document.getElementById("viewer").style.display = "flex";
 }
 
 function closeImage(){
-document.getElementById("viewer").style.display="none";
+    document.getElementById("viewer").style.display = "none";
 }
 
-let cartCount=0;
-
-function addCart(name,price,image){
-cartCount++;
-document.getElementById("count").textContent=
-cartCount.toLocaleString("fa-IR");
-
-alert("«"+name+"» به سبد خرید اضافه شد.");
+function addCart(name){
+    cartCount++;
+    document.getElementById("cartCount").innerText = cartCount;
+    alert(name + " به سبد خرید اضافه شد.");
 }
 
 function alertCart(){
-if(cartCount===0){
-alert("سبد خرید شما خالی است.");
-}else{
-alert("تعداد محصولات در سبد خرید: "+cartCount);
-}
+    if(cartCount === 0){
+        alert("سبد خرید خالی است.");
+    }else{
+        alert("تعداد محصولات سبد خرید: " + cartCount);
+    }
 }
 
-</script></body>
-  </html>
+</script>
+
+</body>
+                  </html>
